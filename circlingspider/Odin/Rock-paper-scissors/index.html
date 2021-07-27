@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        playerSelection = "";
+        computerSelection = "";
+
+        function computerPlay() {   
+            keuze = Math.round(Math.random() * 2)
+            if (keuze === 0) {
+                return "rock"
+            } else if (keuze === 1) {
+                return "paper"
+            } else if (keuze === 2) {
+                return "scissors"
+            } else {
+                "something went wrong"
+            }
+        }
+
+        function playRound(playerSel, computerSel) {
+            playerSel = playerSel.toUpperCase();
+            playerSel = playerSel.toLowerCase();
+            
+            switch (playerSel) {
+                case "rock":
+                    if (computerSel === "scissors") {
+                        return "You Win! Rock beats scissors."
+                    }
+                    else if (computerSel === "paper") {
+                        return "You Lose! Paper beats rock."
+                    }
+                    else {
+                        return "Draw, play another round."
+                    }
+                case "scissors":
+                    if (computerSel === "paper") {
+                        return "You Win! Scissors beat paper."
+                    }
+                    else if (computerSel === "rock") {
+                        return "You Lose! Rock beat scissors."
+                    }
+                    else {
+                        return "Draw, play another round."
+                    }
+                case "paper":
+                    if (computerSel === "rock") {
+                        return "You Win! Paper beats rock."
+                    }
+                    else if (computerSel === "scissors") {
+                        return "You Lose! Scissors beat paper."
+                    }
+                    else {
+                        return "Draw, play another round."
+                    }
+                default:
+                    "Let's play a game!"
+            }
+        }
+
+        function game() {
+            const vijfRonden = 5;
+            aantalGamesGesp = 0;
+            gamesWon = 0;
+            gamesLost = 0;
+            gamesTie = 0;
+
+            while (aantalGamesGesp < 5) {
+                playerSelect = window.prompt("Rock paper or scissors?")
+                computerSelect = computerPlay();
+
+                resultaat = playRound(playerSelect, computerSelect);
+                
+                resultWin = resultaat.indexOf("Win")
+                resultVerlies = resultaat.indexOf("Lose")
+                resultGelijk = resultaat.indexOf("Draw")
+
+                if (((resultWin === 4) && (resultVerlies === -1)) && (resultGelijk === -1)) {
+                    console.log(resultaat)
+                    ++gamesWon;
+                }
+                else if (((resultVerlies === 4) && (resultWin === -1)) && (resultGelijk === -1)) {
+                    console.log(resultaat)
+                    ++gamesLost;
+                }
+                else if (((resultGelijk === 0) && (resultWin === -1)) && (resultVerlies === -1)) {
+                    console.log(resultaat)
+                    ++gamesTie;
+                }
+                else {
+                    console.log(resultWin)
+                    console.log(resultVerlies)
+                    console.log(resultGelijk)
+                }
+                
+                ++aantalGamesGesp;
+            }
+
+            if (gamesWon > gamesLost) {
+                console.log(`You have won! The score is: You, ${gamesWon}. Computer, ${gamesLost}.`)
+            } else if (gamesWon < gamesLost) {
+                console.log(`You have lost! The score is: You, ${gamesWon}. Computer, ${gamesLost}.`)
+            } else if (gamesWon === gamesLost) {
+                console.log(`You have tied. The score is: You, ${gamesWon}. Computer, ${gamesLost}.`)
+            } else {
+                console.log("Something went wrong")
+            }
+        }
+
+        game();
+    </script>
+</body>

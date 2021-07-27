@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" type = "text/css" href = "css/reset.css">
+    <link rel = "stylesheet" type = "text/css" href = "css/start.css">
+</head>
+<body>
+    <h1>Etch-a-sketch!</h1>
+    <button id="btnRes">Reset</button>
+    <button id="btnClearGr">Clear Grid</button>
+    <button id="btnStart">New Grid</button>
+
+    <div id="container">
+
+    </div>
+    
+    <script>
+
+        const buttonRes = document.querySelector('#btnRes');
+        const btnClearGr = document.querySelector('#btnClearGr');
+        const btnStart = document.querySelector('#btnStart');
+
+        const numbPix = 800;
+        let totalCols = 0;
+        let totalRows = 0;
+        let sizeCols = 0;
+        let sizeRows = 0;
+        let keepTrCol = 0;
+        let keepTrRow = 0;
+
+        let numbRow = 1;
+        let numbColumn = 1;
+
+        function promptSize() {
+            totalCols = prompt('Please enter number of columns: ')
+            totalRows = prompt('Please enter number of rows: ')
+        }
+
+        function calcSize(numbPix, totalCols, totalRows) {
+            sizeCols = Math.floor(numbPix / totalCols);
+            sizeRows = Math.floor(numbPix / totalRows);
+        }
+
+        function clearGrid() {
+            const divParent = document.querySelector('#container');
+            
+            for (numbRow = 1; numbRow <= keepTrRow; ++numbRow) {
+                for (numbColumn = 1; numbColumn <= keepTrCol; ++numbColumn) {
+                    let div = document.querySelector(`#s${numbColumn}s${numbRow}`)
+                    div.style.cssText = 'background: white';
+                    divParent.removeChild(div);
+                }
+            }
+        }
+
+        function createGrid() {
+            const divParent = document.querySelector('#container');
+            
+            divParent.style.cssText = `display: grid; grid-template-columns: repeat(${totalCols}, ${sizeCols}px); grid-template-rows: repeat(${totalRows}, ${sizeRows}px);`
+            
+            for (numbRow = 1; numbRow <= totalRows; ++numbRow) {
+                for (numbColumn = 1; numbColumn <= totalCols; ++numbColumn) {
+                    const div = document.createElement('div');
+                    div.setAttribute('id', `s${numbColumn}s${numbRow}`);
+                    //div.textContent = `${numbColumn}${numbRow}`;
+                    divParent.appendChild(div);
+                }
+            }
+
+            keepTrCol = numbColumn - 1; 
+            keepTrRow = numbRow - 1;    
+
+        }
+
+        function createHover() {
+            for (numbRow = 1; numbRow <= totalRows; ++numbRow) {
+                for (numbColumn = 1; numbColumn <= totalCols; ++numbColumn) {
+                    let divs = document.querySelector(`#s${numbColumn}s${numbRow}`);
+                    divs.addEventListener('mouseover', (e) => {
+                        divs.style.cssText = `background: ${randColor()}`;
+                    });
+                    /*buttonRes.addEventListener('click', (e) => {
+                        divs.style.cssText = "background: white";
+                    });*/
+                }
+            }
+        }
+
+        function resetColors() {
+            for (numbRow = 1; numbRow <= totalRows; ++numbRow) {
+                for (numbColumn = 1; numbColumn <= totalCols; ++numbColumn) {
+                    let divs = document.querySelector(`#s${numbColumn}s${numbRow}`);
+                    divs.style.cssText = 'background: white';
+                }
+            }
+        }
+
+        function funcCallOrder() {
+            promptSize();
+            calcSize(numbPix, totalCols, totalRows);
+            createGrid();
+            createHover();
+        }
+
+        function randColor() {
+            //let color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            
+            //let deelEen = "";
+            //let deelTwee = "";
+            //let deelDrie = "";
+            let returnString = "";
+            let count = 0;
+            let kleurArr = [];
+            //let calcVar = 0;
+
+            while (count < 3) {
+                kleurArr.push(Math.floor(Math.random() * 255));
+                ++count;
+            }
+            
+            returnString = `rgb(${kleurArr[0]}, ${kleurArr[1]}, ${kleurArr[2]})`;
+            return returnString;
+
+            /*
+            if (mouseOverCount === 0) {
+                returnString = `rgb(${kleurArr[0]}, ${kleurArr[1]}, ${kleurArr[2]})`
+                return returnString;
+            } else {
+                calcVar = mouseOverCount / 10;
+                deelEen = (Math.floor(kleurArr[0] * (1.0 - calcVar) * 10) / 10).toString(10);
+                deelTwee = (Math.floor(kleurArr[1] * (1.0 - calcVar) * 10) / 10).toString(10);
+                deelDrie = (Math.floor(kleurArr[2] * (1.0 - calcVar) * 10) / 10).toString(10);
+                returnString = `rgb(${deelEen}, ${deelTwee}, ${deelDrie})`;
+                return returnString;
+            }*/
+        }
+        
+        btnClearGr.addEventListener('click', (e) => {
+            clearGrid();
+        });
+        
+        btnStart.addEventListener('click', (e) => {
+            funcCallOrder();
+        })
+
+        buttonRes.addEventListener('click', (e) => {
+            resetColors();
+        })
+
+    </script>
+</body>
+</html>

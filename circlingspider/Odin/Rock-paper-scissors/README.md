@@ -1,0 +1,1 @@
+Dit is een oefen project via de odin project, en het bevat het spelletje steen papier schaar.

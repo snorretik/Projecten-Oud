@@ -1,0 +1,156 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+#firstHalf {
+    border-top-color: black;
+    border-top-width: 2px;
+    border-top-style: solid;
+
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    border-left-color: black;
+    border-left-width: 2px;
+    border-left-style: solid;
+
+    border-right-color: black;
+    border-right-width: 2px;
+    border-right-style: solid;
+
+    background-color: beige;
+    padding: 15px 40px 20px 40px;
+}
+
+#lastHalf {
+    background-color: rgb(224, 224, 165);
+    padding: 5px 40px 20px 40px;
+
+    border-bottom-color: black;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    border-left-color: black;
+    border-left-width: 2px;
+    border-left-style: solid;
+
+    border-right-color: black;
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+
+#create {
+    display: flex;
+    flex-direction: column;
+}
+
+#selectProject {
+    width: 65px;
+}
+
+#firstRowOne {
+    display: flex;
+    flex-direction: row;
+}
+
+#titleHeading {
+    width: 325px;
+}
+
+#title {
+    margin-right: 10px;
+    width: 300px;
+}
+
+#dueHeading {
+    width: 199px;
+}
+
+#due {
+    margin-right: 10px;
+}
+
+#make {
+    width: 70px;
+}
+
+#firstRowThree {
+    display: flex;
+    flex-direction: row;
+}
+
+#describHeading {
+    width: 325px;
+}
+
+#describ {
+    margin-right: 10px;
+    width: 300px;
+}
+
+#projectNameHeading {
+    width: 199px;
+}
+
+#projectName {
+    margin-right: 10px;
+}
+
+#priority {
+    width: 80px;
+}
+
+#projects {
+    width: 150px;
+}
+
+#list-grid {
+    display: grid;
+    grid-template-columns: 350px 125px 40px 50px 25px;
+    grid-row-gap: 5px;
+}
+
+.titleDis {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.dateDis {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.listPriorities {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    width: 25px;
+}
+
+.expandDis {
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+
+.checkDis {
+    margin-left: 10px;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+.deleteButtons {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    width: 40px;
+}

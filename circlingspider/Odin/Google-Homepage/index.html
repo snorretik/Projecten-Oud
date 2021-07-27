@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<link href="css/reset.css" rel="stylesheet" type="text/css" media="all">
+<style>
+    .link-links {
+        margin-right: 10px;
+    }
+    .link-rechts {
+        margin-left: 10px;
+    }
+    #zoek-vak {
+        text-align: center;
+        position: relative;
+        top: 100px;
+    }
+    #links-bovenaan {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+    }
+    #mail {
+        margin-right: 10px;
+    }
+    #afbeeldingen {
+        margin-right: 10px;
+    }
+    #tekst-onderaan {
+        text-align: left;
+        position: fixed;
+        bottom: 22px;
+    }
+    #links-links-onderaan {
+        text-align: left;
+        position: fixed;
+        bottom: 0px;
+    }
+    #links-rechts-onderaan {
+        position: fixed;
+        bottom: 0px;
+        right: 10px;
+    }
+    #knoppen {
+        margin-top: 5px;
+    }
+</style>
+<body>
+    <header>
+        <nav id="links-bovenaan">
+            <a href="https://www.gmail.com" id="mail">Gmail</a>
+            <a href="https://www.google.nl/imghp?hl=nl&tab=wi&ogbl" id="afbeeldingen">Afbeeldingen</a>
+        </nav>
+    </header>
+    <main>
+        <form id="zoek-vak">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="google logo">
+            <br>
+            <input type="text" id="input"></input>
+            <br>
+            <div id="knoppen">
+                <input type="submit" value="Google zoeken"></input>
+                <input type="submit" value="Ik doe een gok"></input>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <div id="tekst-onderaan">
+            <p>Nederland</p>
+        </div>
+        <div id="links-links-onderaan">
+            <a href="https://www.google.com/intl/nl_nl/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1" class="link-links">Adverteren</a>
+            <a href="https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1" class="link-links">Bedrijf</a>
+            <a href="https://about.google/?utm_source=google-NL&utm_medium=referral&utm_campaign=hp-footer&fg=1" class="link-links">Over</a>
+            <a href="https://google.com/search/howsearchworks/?fg=1" class="link-links">Hoe Google Zoeken werkt</a>
+        </div>
+        <div id="links-rechts-onderaan">
+            <a href="https://policies.google.com/privacy?fg=1" class="link-rechts">Privacy</a>
+            <a href="https://policies.google.com/terms?fg=1" class="link-rechts">Voorwaarden</a>
+            <a href="https://www.google.com/preferences?hl=nl" class="link-rechts">Instellingen</a>
+        </div>
+    </footer>
+</body>
+</html>

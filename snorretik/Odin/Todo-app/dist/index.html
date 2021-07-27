@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To do app</title>
+    <meta charset="UTF-8">
+
+    <link href="../src/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="container">
+        <div id="firstHalf">
+            <h1>To do app!</h1>
+
+            <div id="create">
+                <div id="firstRowOne">
+                    <h2 id="titleHeading">Title</h2>
+                    <h2 id="dueHeading">Due date</h2>
+                    <h2 id="makeHeading">Make</h2>
+                </div>
+                <div id="firstRowTwo">
+                    <input type="text" id="title">
+                    <input type="text" id="due" placeholder="dd-mm-yyyy">
+                    <button id="make">+</button>
+                </div>
+                <div id="firstRowThree">
+                    <h2 id="describHeading">Description</h2>
+                    <h2 id="projectNameHeading">Project name</h2>
+                </div>
+                <div id="firstRowFour">
+                    <input type="text" id="describ">
+                    <input type="text" id="projectName">
+                </div>
+                <div id="firstRowFive">
+                    <h2 id="priorityHeading">Priority</h2>
+                </div>
+                <div id="firstRowSix">
+                    <select id="priority">
+                        <option id="yellowPrio" value="yellow">yellow</option>
+                        <option id="orangePrio" value="orange">orange</option>
+                        <option id="redPrio" value="red">red</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="lastHalf">
+            <div id="staticPart">
+                <div id="lastRowOne">
+                    <h2 id="projectsHeading">Project select</h2>
+                </div>
+                <div id="lastRowTwo">
+                    <select id="projects">
+                        <option class="projectClass" value="main">main</option>
+                    </select>
+                </div>
+                <div id="lastRowThree">
+                    <h2 id="todoHeading">List:</h2>
+                </div>
+            </div>
+            <div id="list-grid">
+                
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
